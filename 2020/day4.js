@@ -1,4 +1,4 @@
-const { entireFileAsString } = require('./helpers/util');
+const { entireFileAsString } = require('../helpers/util');
 
 const checkThatPassportContainsAllRequiredFields = (passport, required) => 
     Object.keys(required).every(field => 

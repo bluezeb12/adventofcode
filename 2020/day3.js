@@ -1,4 +1,4 @@
-const { readFileAs2DArray } = require('./helpers/util');
+const { readFileAs2DArray } = require('../helpers/util');
 
 const createSlope = (x, y) => ({
     down: y,

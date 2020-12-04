@@ -1,5 +1,5 @@
 
-const { readFileAsArray } = require('./helpers/util');
+const { readFileAsArray } = require('../helpers/util');
 
 const createBinaryObj = (string, char, label1, label2) => {
     const split = (string.split(char || '-')).map(Number);
