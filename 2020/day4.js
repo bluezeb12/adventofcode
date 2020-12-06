@@ -64,7 +64,8 @@ logValidatePassport = (passport, requiredFields) => {
         //console.log(val, passport[val], isValid);
         return isValid;
     });
-    console.log(`${JSON.stringify(passport)} is validOverall: ${overall}`)
+    if(overall)
+        console.log(`${JSON.stringify(passport)} is validOverall: ${overall}`)
     return overall
 }
 
@@ -98,12 +99,15 @@ const removeAllNewLines = (data) => data.replace('\r\n', ' ');
         return checkThatPassportContainsAllRequiredFields(passport, requiredFields);
     });
 
+    //Given the data set (found in .inputs/day4.input.txt), this is giving 128 valid passports...
+    // This answer is not correct according to Advent of Code site, but I can't find the bug... still cross checking
+    // The correct answer for this data set is 127
     const completelyValidPassports = validPassports.reduce((count, passport) => 
         count + (logValidatePassport(passport, requiredFields) ? 1 : 0)
     , 0);
     console.log(completelyValidPassports);
 })().catch(ex => {
     console.log(ex);
-})
+});
 
 //createPassport()
