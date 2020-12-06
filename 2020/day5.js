@@ -51,3 +51,32 @@ const getSeat = (line) => {
 })().catch((ex) => {
     console.log(ex);
 });
+
+// A binary method of solving the above problem tha was over-engineered
+const seatId = (s) => {
+    const r = s.replace(/F/gm, '0').replace(/B/gm, '1').replace(/L/gm, '0').replace(/R/gm, '1');
+    console.log(r);
+    return parseInt(r, 2);
+};
+
+// (async () => {
+//     const lines = await readFileAsArray('./inputs/day5.input.txt');
+//     const allSeatIds = lines.map((x) => {
+//         const s = seatId(x);
+//         console.log('seat:', s);
+//         return s;
+//     });
+//     console.log(Math.max.apply(this, allSeatIds));
+//     const sorted = allSeatIds.sort((a,b) => a < b ? -1 : a > b ? 1 : 0);
+//     const mySeat = sorted.find((seat, idx, arr) => {
+//         if(idx === arr.length - 1) {
+//             return -1;
+//         }
+//         console.log(seat, arr[idx+1]);
+//         return arr[idx + 1] === seat + 2;
+
+//     }) + 1;
+//     console.log(mySeat);
+// })().catch((ex) => {
+//     console.log(ex);
+// });
