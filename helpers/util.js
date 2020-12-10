@@ -4,13 +4,15 @@
  * @param {string} filename The fiile name to read
  * @param {*} fn a Function that expects one parameter, x -> which represents the line from the file.
  */
-const lineByLineInput = (filename, fn) => {
+const lineByLineInput = (filename, fn, onClose) => {
     const fs = require('fs');
     const readline = require('readline');
     const readInterface = readline.createInterface({
         input: fs.createReadStream(filename)
     });
     readInterface.on('line', fn);
+    if(onClose)
+        readInterface.on('close', onClose);
 }
 
 const readFileAsArray = async (filename, modifier) => {
