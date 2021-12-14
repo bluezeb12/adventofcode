@@ -19,7 +19,7 @@ const readFileAsArray = async (filename, modifier) => {
     const fs = require('fs').promises;
     
     let data = await fs.readFile(filename, 'utf8');
-    const arr = data.split('\r\n').map(x => modifier ? modifier(x) : x);
+    const arr = data.split('\n').map(x => modifier ? modifier(x) : x);
     return Promise.resolve(arr);
 }
 
