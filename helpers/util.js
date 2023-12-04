@@ -23,11 +23,11 @@ const readFileAsArray = async (filename, modifier) => {
     return Promise.resolve(arr);
 }
 
-const readFileAs2DArray = async (filename) => {
+const readFileAs2DArray = async (filename, lineBreak = '\r\n') => {
     const fs = require('fs').promises;
 
     let data = await fs.readFile(filename, 'utf8');
-    const lines = data.split('\r\n');
+    const lines = data.split(lineBreak);
     const arr = lines.map(x=> Array.from(x));
 
     return arr;
